@@ -6,16 +6,16 @@
   --gradient-color: linear-gradient(90deg, #b755c1 0%, #fc575c 100%);
   --second-gradient-color: linear-gradient(
     90deg,
-    rgb(255, 61, 99) 0%,
-    rgb(248, 139, 75) 100%
-  );
-  --third-gradient-color: linear-gradient(
-    90deg,
     rgb(63, 250, 86) 0%,
     rgb(228, 230, 77) 100%
   );
-  --first-color: #41fa56;
-  --second-color: #f88b4b;
+  --third-gradient-color: linear-gradient(
+    90deg,
+    rgb(255, 61, 99) 0%,
+    rgb(248, 139, 75) 100%
+  );
+  --first-color: #f88b4b;
+  --second-color: #41fa56;
   --third-color: #b755c1;
   --section-title-color: #f8fafc;
   --text-color: #787d82;
@@ -194,19 +194,20 @@ header nav a:hover::after {
   justify-content: space-between;
   height: calc(100vh - 90px);
 }
-/* #home::before {
+#home::before {
   content: "";
-  width: 50px;
-  height: 150px;
+  width: 0.1px;
+  height: 250px;
   background-color: var(--main-color);
-  box-shadow: 0 0 100px 0 var(--main-color);
+  box-shadow: 0 0 100px 200px var(--main-color);
   border-radius: 50%;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  opacity: 0.5;
+  top: 45%;
+  left: 85%;
+  opacity: 0.3;
   transform: translate(-50%, -50%);
-} */
+  z-index: -1;
+}
 #home h1 {
   color: var(--section-title-color);
   font-size: 50px;
@@ -277,9 +278,12 @@ header nav a:hover::after {
   #home {
     flex-direction: column;
   }
+  #home::before {
+    top: 50%;
+    left: 50%;
+  }
   #home .content {
     margin: auto;
-    /* margin-bottom: 50px; */
   }
   #home h1 {
     margin: auto;
@@ -299,6 +303,7 @@ header nav a:hover::after {
   }
   .section-img {
     max-width: 90%;
+    margin: 50px 0 ;
   }
 }
 .section-img {
@@ -369,11 +374,23 @@ header nav a:hover::after {
 /* Start feature section */
 .feature {
   padding: var(--setion-padding) 0;
-}
-.feature {
+  position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+.feature::before {
+  content: "";
+  width: 1px;
+  height: 300px;
+  background-color: var(--second-color);
+  box-shadow: 0 0 100px 200px var(--second-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  opacity: 0.3;
+  z-index: -1;
 }
 .feature .content {
   padding: 0 40px;
@@ -420,6 +437,9 @@ header nav a:hover::after {
 @media (max-width: 991px) {
   .feature {
     flex-direction: column;
+  }
+  .feature::before {
+  left: -20%;
   }
   .feature h2 {
     font-size: 30px;
