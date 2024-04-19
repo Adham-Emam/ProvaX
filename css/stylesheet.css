@@ -5,11 +5,7 @@
 :root {
   --main-color: #fc575c;
   --gradient-color: linear-gradient(90deg, #b755c1 0%, #fc575c 100%);
-  --second-gradient-color: linear-gradient(
-    90deg,
-    rgb(63, 250, 86) 0%,
-    rgb(228, 230, 77) 100%
-  );
+  --second-gradient-color: linear-gradient(90deg, #8390fa 0%, #1d2f6f 100%);
   --third-gradient-color: linear-gradient(
     90deg,
     rgb(255, 61, 99) 0%,
@@ -21,7 +17,7 @@
     rgb(0, 242, 255) 100%
   );
   --first-color: #f88b4b;
-  --second-color: #41fa56;
+  --second-color: #1d2f6f;
   --third-color: #b027c0;
   --forth-color: rgb(0, 242, 255);
   --section-title-color: #f8fafc;
@@ -511,8 +507,8 @@ header nav a:hover::after {
 .cta {
   background: linear-gradient(
     90deg,
-    var(--third-color),
     var(--second-color),
+    var(--third-color),
     var(--first-color),
     var(--main-color)
   );
@@ -696,7 +692,10 @@ footer p {
   width: fit-content;
 }
 footer a {
-  font-family: "Lobster", sans-serif;
+  background-image: var(--gradient-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: bolder;
   color: var(--main-color);
 }
@@ -792,10 +791,10 @@ footer i:hover {
   #about {
     padding: var(--setion-padding) 20px;
   }
-#about::before {
-  top: 70%;
-  left: 50%;
-}
+  #about::before {
+    top: 70%;
+    left: 50%;
+  }
   #about div {
     padding-left: 20px;
   }
