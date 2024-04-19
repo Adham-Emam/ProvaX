@@ -28,9 +28,9 @@
           </a>
         </div>
         <nav>
-          <a href="#about">About</a>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
           <a href="#services">Services</a>
-          <a href="#feature">Order</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
@@ -65,23 +65,31 @@
         <h2>Discover <span>Your Perfect Fit</span></h2>
         <div class="content">
           <div class="box">
-            <i class="fa-solid fa-wand-magic-sparkles fa-2x"></i>
-            <h3>Tailored to You</h3>
+            <div>
+              <i class="fa-solid fa-wand-magic-sparkles fa-2x"></i>
+              <h3>Tailored to You</h3>
+            </div>
             <p>Clothes crafted to fit your unique style and body.</p>
           </div>
           <div class="box">
-            <i class="fa-solid fa-fire-flame-curved fa-2x"></i>
-            <h3>Trendy Designs</h3>
+            <div>
+              <i class="fa-solid fa-fire-flame-curved fa-2x"></i>
+              <h3>Trendy Designs</h3>
+            </div>
             <p>Stay ahead of the fashion curve with our latest collections.</p>
           </div>
           <div class="box">
-            <i class="fa-solid fa-shirt fa-2x"></i>
-            <h3>Luxurious Comfort</h3>
+            <div>
+              <i class="fa-solid fa-shirt fa-2x"></i>
+              <h3>Luxurious Comfort</h3>
+            </div>
             <p>Experience unparalleled comfort in every fabric and stitch.</p>
           </div>
           <div class="box">
-            <i class="fa-solid fa-circle-check fa-2x"></i>
-            <h3>Boosted Confidence</h3>
+            <div>
+              <i class="fa-solid fa-circle-check fa-2x"></i>
+              <h3>Boosted Confidence</h3>
+            </div>
             <p>Feel empowered and self-assured in our stylish ensembles.</p>
           </div>
         </div>
@@ -108,13 +116,15 @@
             garments that reflect your individuality.
           </p>
           <div class="btn">
-            <a href="mailto:contact@provaxapp.com">Get in Touch</a>
+            <a href="#contact">Get in Touch</a>
           </div>
         </div>
       </section>
       <!-- End feature section -->
       <!-- Start CTA Section -->
-      <section class="cta" id="contact">
+    </div>
+    <section class="cta">
+      <div class="container">
         <div>
           <h2>Don't Miss Out</h2>
           <p>Discover Your Perfect Look Today</p>
@@ -122,14 +132,72 @@
         <div>
           <a href="#">Start Shopping</a>
         </div>
+      </div>
+    </section>
+    <!-- End CTA Section -->
+    <!-- Start Contact Section -->
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <h3>Have Any Questions?</h3>
+        <p>Don't hesitate to Mail Us</p>
+        <div>
+          <div class="box">
+            <i class="fa-solid fa-phone"></i>
+            <h4>Call Us On</h4>
+            <p>+20 012 3456 7890</p>
+          </div>
+          <div class="box">
+            <i class="fa-solid fa-location-dot"></i>
+            <h4>Our Location</h4>
+            <p>Egypt</p>
+          </div>
+          <div class="box">
+            <i class="fa-solid fa-envelope"></i>
+            <h4>Email</h4>
+            <p>adhamh372002@gmail.com</p>
+          </div>
+        </div>
+        <form action="https://formspree.io/f/xdoqlgvy" method="post">
+        <div class="overlay"></div>
+    <div class="container">
+
+          <div class='email'>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Name"
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="Subject"
+            required
+          />
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Message"
+          ></textarea>
+          <button value="submit" class="btn">Send Message</button>
+          </div>
+        </form>
       </section>
-      <!-- End CTA Section -->
+      <!-- End Contact Section -->
       <!-- Start Footer -->
       <footer>
-        <p>&copy; CopyRight by <a href="#header">ProvaX</a></p>
+        <p>&copy; 2024 <a href="#header">ProvaX</a>. All rights reserved.</p>
       </footer>
-      <!-- End Footer -->
-    </div>
-    <script src="js/main.js"></script>
+    <!-- End Footer -->
   </body>
 </html>

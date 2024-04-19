@@ -1,5 +1,6 @@
 /* Start Global Rules */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 :root {
   --main-color: #fc575c;
@@ -14,9 +15,14 @@
     rgb(255, 61, 99) 0%,
     rgb(248, 139, 75) 100%
   );
+  --forth-gradient-color: linear-gradient(
+    90deg,
+    #b027c0 40%,
+    rgb(0, 242, 255) 100%
+  );
   --first-color: #f88b4b;
   --second-color: #41fa56;
-  --third-color: #b755c1;
+  --third-color: #b027c0;
   --section-title-color: #f8fafc;
   --text-color: #787d82;
   --setion-padding: 50px;
@@ -44,6 +50,14 @@ body {
 }
 html {
   scroll-behavior: smooth;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Julius Sans One", sans-serif;
 }
 .container {
   padding: 10px 20px;
@@ -136,7 +150,7 @@ header nav a {
   -o-transition: 0.5s;
 }
 header nav a:hover {
-  color: var(--text-color);
+  color: var(--main-color);
 }
 header nav a::before {
   content: "";
@@ -188,6 +202,7 @@ header nav a:hover::after {
 }
 #home {
   position: relative;
+  padding: 150px 0;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -268,9 +283,20 @@ header nav a:hover::after {
 #home .links img {
   height: 75px;
 }
+@media (min-width: 1400px) {
+  #home {
+    height: auto;
+  }
+}
 @media (max-width: 577px) {
+  #home .content {
+    width: 100%;
+  }
   #home h1 {
     font-size: 20px;
+  }
+  #home p {
+    width: fit-content;
   }
   #home .links img {
     height: 60px;
@@ -279,6 +305,7 @@ header nav a:hover::after {
 @media (max-width: 991px) {
   #home {
     flex-direction: column;
+    padding: var(--setion-padding) 0;
   }
   #home::before {
     top: 50%;
@@ -342,19 +369,29 @@ header nav a:hover::after {
   margin: 30px;
   line-height: 2;
 }
+.services .box div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 15px;
+}
 .services .box i {
   color: var(--first-color);
-  margin: auto;
 }
 .services .box h3 {
   color: var(--section-title-color);
   display: inline-block;
-  margin: 0 0 20px 20px;
 }
 @media (max-width: 991px) {
   .services .box {
     flex-basis: 40%;
+  }
+  .services .box div {
     flex-direction: column;
+  }
+  .services .box p {
+    text-align: center;
   }
 }
 @media (max-width: 767px) {
@@ -370,15 +407,13 @@ header nav a:hover::after {
   }
   .services .box h3 {
     margin: 30px 0;
-  }
-  .services .box p {
     text-align: center;
   }
 }
 /* End Features */
 /* Start feature section */
 .feature {
-  padding: var(--setion-padding) 0;
+  padding: var(--setion-padding) 0 100px;
   position: relative;
   display: flex;
   justify-content: space-around;
@@ -429,7 +464,7 @@ header nav a:hover::after {
 .feature .btn a {
   color: var(--second-color);
   padding: 10px 30px;
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: bolder;
   border: 3px solid var(--second-color);
   border-radius: 20px;
@@ -466,20 +501,25 @@ header nav a:hover::after {
     margin-top: 50px;
     order: 2;
   }
+  .feature .btn a {
+    font-size: 1rem;
+  }
 }
 /*  End feature section */
 /* Start CTA Section */
 .cta {
-  padding: 30px;
   background: linear-gradient(
-    -45deg,
+    90deg,
     var(--third-color),
-    var(--first-color),
     var(--second-color),
+    var(--first-color),
     var(--main-color)
   );
-  background-size: 400% 400%;
-  animation: gradient 5s ease infinite;
+  background-size: 300% 300%;
+  animation: gradient 5s linear infinite;
+  padding: var(--setion-padding) 0;
+}
+.cta .container {
   color: var(--section-title-color);
   display: flex;
   align-items: center;
@@ -512,7 +552,7 @@ header nav a:hover::after {
   color: black;
 }
 @media (max-width: 767px) {
-  .cta {
+  .cta .container {
     flex-direction: column;
     justify-content: center;
     text-align: center;
@@ -526,6 +566,122 @@ header nav a:hover::after {
   }
 }
 /* End CTA Section */
+/* Start Contact Section */
+#contact {
+  padding: var(--setion-padding) 0;
+}
+#contact h2 {
+  color: var(--section-title-color);
+  margin-bottom: var(--setion-padding);
+  font-size: 50px;
+  text-align: center;
+  background-image: var(--forth-gradient-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#contact h3 {
+  color: var(--section-title-color);
+  text-align: center;
+  margin-bottom: 15px;
+}
+#contact h3 + p {
+  text-align: center;
+}
+#contact > div {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#contact > div div {
+  flex: 1;
+  text-align: center;
+}
+#contact > div div i {
+  color: var(--third-color);
+  font-size: 2em;
+}
+#contact > div div h4 {
+  margin: 15px 0;
+}
+#contact form {
+  background-image: url("../images/world-map.svg");
+  background-size: cover;
+  background-position: center center;
+  margin-top: 60px;
+  position: relative;
+  z-index: 1;
+}
+#contact form .overlay {
+  position: absolute;
+  background-color: #000000;
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+#contact form .email {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+#contact form input,
+#contact form textarea {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border: 2px solid var(--text-color);
+  color: var(--section-title-color);
+  caret-color: var(--third-color);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+#contact form input:focus,
+#contact form textarea:focus {
+  outline: none;
+  border-color: var(--third-color);
+}
+#contact form textarea {
+  min-height: 200px;
+  resize: none;
+}
+#contact form .btn {
+  display: block;
+  margin: auto;
+  padding: 15px 40px;
+  background-color: var(--third-color);
+  border: none;
+  color: white;
+  border-radius: 5px;
+}
+#contact form .btn:hover {
+  opacity: 0.8;
+}
+@media (max-width: 767.98px) {
+  #contact h2 {
+    font-size: 30px;
+  }
+  #contact h3 {
+    font-size: 1.2rem;
+  }
+  #contact > div {
+    flex-direction: column;
+    gap: 50px;
+  }
+  #contact form .email {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+@media (max-width: 564px) {
+  #contact > div div p {
+    font-size: 0.8em;
+  }
+}
+/* End Contact Section */
 /* Start footer */
 footer {
   padding: 20px;
@@ -539,6 +695,7 @@ footer p {
   width: fit-content;
 }
 footer a {
+  font-family: "Lobster", sans-serif;
   font-weight: bolder;
   color: var(--main-color);
 }
@@ -563,6 +720,27 @@ footer i:hover {
   }
 }
 /* End footer */
+/* Start why-provax Section */
+#why-provax {
+  padding: var(--setion-padding) 0;
+}
+#why-provax h2 {
+  color: var(--section-title-color);
+  margin-bottom: 50px;
+  font-size: 50px;
+}
+#why-provax h2 span {
+  width: fit-content;
+  background-image: var(--forth-gradient-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#why-provax p {
+  line-height: 1.5;
+  font-size: 20px;
+}
+/*  End why-provax section */
 /* Stat coming soon section */
 .soon {
   position: relative;
@@ -575,24 +753,6 @@ footer i:hover {
   height: 100vh;
   flex-direction: column;
   text-align: center;
-}
-.soon .container::before {
-  /* content: "";
-  width: 450px;
- height: 0.1px;
-  background-color: var(--main-color);
-  box-shadow: 0 0 250px 150px var(--main-color);
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -o-border-radius: 50%;
-  -ms-border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  opacity: 0.3;
-  transform: translate(-50%, -50%);
-  z-index: -1; */
 }
 .soon::after {
   content: "";
