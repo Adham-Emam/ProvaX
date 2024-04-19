@@ -23,6 +23,7 @@
   --first-color: #f88b4b;
   --second-color: #41fa56;
   --third-color: #b027c0;
+  --forth-color: rgb(0, 242, 255);
   --section-title-color: #f8fafc;
   --text-color: #787d82;
   --setion-padding: 50px;
@@ -276,8 +277,8 @@ header nav a:hover::after {
 }
 #home .links a {
   background-color: #000;
-  border: 1px solid var(--third-color);
-  box-shadow: 0 0 5px 0 var(--third-color);
+  border: 1px solid var(--first-color);
+  box-shadow: 0 0 5px 0 var(--first-color);
   border-radius: 20px;
 }
 #home .links img {
@@ -568,7 +569,7 @@ header nav a:hover::after {
 /* End CTA Section */
 /* Start Contact Section */
 #contact {
-  padding: var(--setion-padding) 0;
+  margin: 100px 0 var(--setion-padding);
 }
 #contact h2 {
   color: var(--section-title-color);
@@ -616,7 +617,7 @@ header nav a:hover::after {
 #contact form .overlay {
   position: absolute;
   background-color: #000000;
-  opacity: 0.7;
+  opacity: 0.8;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -720,9 +721,132 @@ footer i:hover {
   }
 }
 /* End footer */
+/* Start About Section */
+#about {
+  background-color: #111;
+  padding: var(--setion-padding);
+  margin: var(--setion-padding) 0;
+  border-radius: 30px;
+}
+#about::before {
+  content: "";
+  width: 0.01px;
+  height: 250px;
+  background-color: var(--first-color);
+  box-shadow: 0 0 250px 150px var(--first-color);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  opacity: 0.3;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+#about div {
+  padding-left: 30px;
+}
+#about h2 {
+  color: var(--section-title-color);
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+#about h2 span {
+  width: fit-content;
+  background-image: var(--third-gradient-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#about p {
+  line-height: 1.5;
+  position: relative;
+}
+#about p:not(:last-child) {
+  padding-bottom: 20px;
+}
+#about div p::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: var(--main-color);
+  position: absolute;
+  top: 5px;
+  left: -30px;
+  border-radius: 50%;
+}
+#about div p::after {
+  content: "";
+  width: 1px;
+  height: 100%;
+  background-color: var(--main-color);
+  position: absolute;
+  top: 5px;
+  left: -25px;
+  border-radius: 50%;
+}
+@media (max-width: 577px) {
+  #about {
+    padding: var(--setion-padding) 20px;
+  }
+#about::before {
+  top: 70%;
+  left: 50%;
+}
+  #about div {
+    padding-left: 20px;
+  }
+  #about h2 {
+    font-size: 30px;
+  }
+  #about p {
+    font-size: 1rem;
+  }
+  #about div p::before {
+    left: -20px;
+  }
+  #about div p::after {
+    left: -15px;
+  }
+}
+/* End About Section */
 /* Start why-provax Section */
 #why-provax {
   padding: var(--setion-padding) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+#why-provax .section-img {
+  max-width: 500px;
+  height: 100%;
+  position: relative;
+}
+#why-provax .section-img::before {
+  content: "";
+  width: 1px;
+  height: 250px;
+  background-color: var(--third-color);
+  box-shadow: 0 0 250px 150px var(--third-color);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0.3;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+#why-provax .section-img img {
+  width: 100%;
+  height: 100%;
 }
 #why-provax h2 {
   color: var(--section-title-color);
@@ -739,6 +863,42 @@ footer i:hover {
 #why-provax p {
   line-height: 1.5;
   font-size: 20px;
+  margin-bottom: 30px;
+}
+@media (max-width: 991px) {
+  #why-provax {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  #why-provax .container {
+    margin-top: 75px;
+  }
+  #why-provax::after {
+    content: "";
+    height: 250px;
+    width: 0px;
+    background-color: var(--forth-color);
+    box-shadow: 0 0 250px 150px var(--forth-color);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    opacity: 0.3;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+}
+@media (max-width: 577px) {
+  #why-provax h2 {
+    font-size: 30px;
+  }
+  #why-provax p {
+    font-size: 1rem;
+  }
 }
 /*  End why-provax section */
 /* Stat coming soon section */
