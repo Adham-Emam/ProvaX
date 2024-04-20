@@ -1,7 +1,7 @@
 /* Start Global Rules */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap");
 :root {
   --main-color: #fc575c;
   --gradient-color: linear-gradient(90deg, #b755c1 0%, #fc575c 100%);
@@ -20,7 +20,7 @@
   --second-color: #1d2f6f;
   --third-color: #b027c0;
   --forth-color: rgb(0, 242, 255);
-  --section-title-color: #f8fafc;
+  --section-title-color: #111;
   --text-color: #787d82;
   --setion-padding: 50px;
 }
@@ -37,7 +37,7 @@
 }
 body {
   font-family: "Ubuntu", sans-serif;
-  background-color: #000;
+  background-color: #fff;
   color: var(--text-color);
 }
 * {
@@ -107,6 +107,14 @@ a {
 /* End Global Rules */
 /* Start header */
 header {
+  box-shadow: 0 0px 10px 0 var(--main-color);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+}
+header .container {
   padding: 20px 0;
   display: flex;
   justify-content: space-between;
@@ -125,14 +133,14 @@ header .logo img {
   -o-border-radius: 50%;
 }
 header .logo a {
-  font-family: "Lobster", sans-serif;
+  font-family: "Lugrasimo", cursive;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   position: relative;
   color: var(--section-title-color);
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 900;
 }
 header nav a {
@@ -197,16 +205,16 @@ header nav a:hover::after {
 #home .content {
   width: clamp(300px, 50%, 800px);
 }
-#home {
+#home .container {
+  padding: 200px 0 150px;
   position: relative;
-  padding: 150px 0;
   margin: 0 auto;
+  height: calc(100vh - 90px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: calc(100vh - 90px);
 }
-#home::before {
+#home .container::before {
   content: "";
   width: 0.01px;
   height: 250px;
@@ -220,7 +228,7 @@ header nav a:hover::after {
   position: absolute;
   top: 45%;
   left: 85%;
-  opacity: 0.3;
+  opacity: 0.5;
   transform: translate(-50%, -50%);
   z-index: -1;
 }
@@ -252,7 +260,7 @@ header nav a:hover::after {
   margin: 30px 0;
 }
 #home .btn a {
-  color: var(--section-title-color);
+  color: white;
   background-image: linear-gradient(90deg, #74247d 0%, #fc575c 100%);
   background-size: 150% 150%;
   padding: 10px 30px;
@@ -273,15 +281,15 @@ header nav a:hover::after {
 }
 #home .links a {
   background-color: #000;
-  border: 1px solid var(--first-color);
-  box-shadow: 0 0 5px 0 var(--first-color);
+  border: 1px solid var(--main-color);
+  box-shadow: 0 0 10px 0 var(--main-color);
   border-radius: 20px;
 }
 #home .links img {
   height: 75px;
 }
 @media (min-width: 1400px) {
-  #home {
+  #home .container {
     height: auto;
   }
 }
@@ -300,7 +308,7 @@ header nav a:hover::after {
   }
 }
 @media (max-width: 991px) {
-  #home {
+  #home .container {
     flex-direction: column;
     padding: var(--setion-padding) 0;
   }
@@ -430,7 +438,7 @@ header nav a:hover::after {
   position: absolute;
   top: 50%;
   left: 0%;
-  opacity: 0.3;
+  opacity: 0.5;
   z-index: -1;
 }
 .feature .content {
@@ -517,7 +525,7 @@ header nav a:hover::after {
   padding: var(--setion-padding) 0;
 }
 .cta .container {
-  color: var(--section-title-color);
+  color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -534,7 +542,7 @@ header nav a:hover::after {
 }
 .cta a {
   background-color: #000;
-  color: var(--section-title-color);
+  color: white;
   padding: 10px 30px;
   font-weight: 600;
   transition-duration: 0.3s;
@@ -610,14 +618,6 @@ header nav a:hover::after {
   position: relative;
   z-index: 1;
 }
-#contact form .overlay {
-  position: absolute;
-  background-color: #000000;
-  opacity: 0.8;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
 #contact form .email {
   display: flex;
   justify-content: center;
@@ -653,6 +653,7 @@ header nav a:hover::after {
   border: none;
   color: white;
   border-radius: 5px;
+  cursor: pointer;
 }
 #contact form .btn:hover {
   opacity: 0.8;
@@ -681,8 +682,10 @@ header nav a:hover::after {
 /* End Contact Section */
 /* Start footer */
 footer {
+  background-color: var(--section-title-color);
+
   padding: 20px;
-  color: var(--section-title-color);
+  color: #ffffff;
 }
 footer {
   display: flex;
@@ -692,6 +695,7 @@ footer p {
   width: fit-content;
 }
 footer a {
+  font-family: "Lugrasimo", cursive;
   background-image: var(--gradient-color);
   background-clip: text;
   -webkit-background-clip: text;
@@ -722,9 +726,9 @@ footer i:hover {
 /* End footer */
 /* Start About Section */
 #about {
-  background-color: #111;
+  background-color: #eee;
   padding: var(--setion-padding);
-  margin: var(--setion-padding) 0;
+  margin: 150px 0 var(--setion-padding);
   border-radius: 30px;
 }
 #about::before {
@@ -741,7 +745,7 @@ footer i:hover {
   position: absolute;
   top: 50%;
   left: 0%;
-  opacity: 0.3;
+  opacity: 0.5;
   transform: translate(-50%, -50%);
   z-index: -1;
 }
@@ -839,7 +843,7 @@ footer i:hover {
   position: absolute;
   top: 50%;
   left: 50%;
-  opacity: 0.3;
+  opacity: 0.5;
   transform: translate(-50%, -50%);
   z-index: -1;
 }
@@ -886,7 +890,7 @@ footer i:hover {
     position: absolute;
     bottom: -10%;
     left: 50%;
-    opacity: 0.3;
+    opacity: 0.5;
     transform: translate(-50%, -50%);
     z-index: -1;
   }
@@ -927,7 +931,7 @@ footer i:hover {
   position: absolute;
   top: 0%;
   right: 5%;
-  opacity: 0.3;
+  opacity: 0.5;
   z-index: -1;
 }
 .soon::before {
@@ -944,7 +948,7 @@ footer i:hover {
   position: absolute;
   bottom: 0%;
   left: 5%;
-  opacity: 0.3;
+  opacity: 0.5;
   z-index: -1;
 }
 .soon .section-img {
@@ -968,7 +972,7 @@ footer i:hover {
   background-color: var(--main-color);
   background-image: var(--gradient-color);
   background-size: 150% 150%;
-  color: var(--section-title-color);
+  color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
