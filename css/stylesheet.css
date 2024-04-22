@@ -160,6 +160,8 @@ header.scrolled {
 }
 header.active-menu {
   height: 230px;
+  background-color: var(--background-color);
+  box-shadow: 0 0px 5px 0 var(--main-color);
 }
 header .container {
   padding: 20px 0;
