@@ -16,6 +16,8 @@ This website serves as a landing page for the ProvaX app, providing information 
   - `normalize.css`: CSS file for resetting default browser styles.
   - `stylesheet.css`: CSS file for styling the website.
 - **images/**: Directory containing image assets used in the website.
+- **js/**: Durectory containing JavaScript files
+  - `main.js`: JavaScript file containing the functionality of the website
 
 
 ## Features
@@ -38,9 +40,3 @@ git clone <repository_url>
 ## Contributing
 
 Contributions are welcome! If you have any ideas for improvements or new features, feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-```
