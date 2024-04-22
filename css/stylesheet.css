@@ -1,4 +1,4 @@
-/* Start Global Rules */
+use/* Start Global Rules */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap");
@@ -405,7 +405,11 @@ header .nav-menu a:hover {
     width: 100%;
     padding: 0 20px;
   }
-  #home h1 {
+
+  #home .container::before {
+    top: 50%;
+    left: 50%;
+  }  #home h1 {
     font-size: 20px;
   }
   #home p {
@@ -422,10 +426,6 @@ header .nav-menu a:hover {
   #home .container {
     flex-direction: column;
     padding: var(--setion-padding) 0;
-  }
-  #home::before {
-    top: 50%;
-    left: 50%;
   }
   #home .content {
     margin: auto;
