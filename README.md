@@ -1,6 +1,3 @@
-Certainly! Below is a README.md file for your project:
-
-```markdown
 # ProvaX App Website
 
 Welcome to the ProvaX App Website project! This is a simple website template for showcasing the features of the ProvaX app, a virtual try-on app for clothes.
