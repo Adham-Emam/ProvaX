@@ -20,7 +20,9 @@
   --second-color: #1d2f6f;
   --third-color: #b027c0;
   --forth-color: rgb(0, 242, 255);
-  --section-title-color: #111;
+  --section-title-color: white;
+  --background-color: black;
+  --section-color: #111;
   --text-color: #787d82;
   --setion-padding: 50px;
 }
@@ -37,7 +39,7 @@
 }
 body {
   font-family: "Ubuntu", sans-serif;
-  background-color: #fff;
+  background-color: var(--background-color);
   color: var(--text-color);
 }
 * {
@@ -105,14 +107,59 @@ a {
   }
 }
 /* End Global Rules */
+/* Start Loading */
+.loading {
+  background-color: var(--background-color);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.loading.loaded{
+  display: none;
+}
+.loading img {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  animation: loading 2s infinite ease;
+}
+@keyframes loading {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* End Loading */
 /* Start header */
 header {
-  box-shadow: 0 0px 10px 0 var(--main-color);
   position: fixed;
+  transition: top 0.3s, height 0.5s, background-color 0.5s, box-shadow 0.3s;
   width: 100%;
   top: 0;
   z-index: 100;
-  background-color: white;
+  overflow: hidden;
+}
+header.fixed {
+  top: -95px;
+}
+header.scrolled {
+  background-color: var(--background-color);
+  box-shadow: 0 0px 5px 0 var(--main-color);
+  top: 0px;
+}
+header.active-menu {
+  height: 230px;
 }
 header .container {
   padding: 20px 0;
@@ -181,23 +228,81 @@ header nav a:hover::before,
 header nav a:hover::after {
   width: 50%;
 }
-@media (max-width: 300px) {
-  header nav {
-    display: none;
-  }
+header .nav-icon {
+  display: none;
+  width: 25px;
+  height: 15px;
+  /* background-color: red; */
+  position: relative;
+}
+header .nav-icon span {
+  background-color: var(--section-title-color);
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  border-radius: 10px;
+  transition: transform 0.5s, opacity 0.1s;
+  opacity: 1;
+}
+header .nav-icon span:nth-child(2) {
+  top: 50%;
+}
+header .nav-icon span:nth-child(3) {
+  top: 100%;
+}
+header .nav-icon.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(350%);
+}
+header .nav-icon.active span:nth-child(2) {
+  opacity: 0;
+}
+header .nav-icon.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-350%);
+}
+header .nav-menu {
+  display: none;
+  position: absolute;
+  top: 80px;
+}
+header .nav-menu a {
+  color: var(--section-title-color);
+  display: block;
+  margin-bottom: 15px;
+  transition-duration: 0.3s;
+}
+header .nav-menu a:hover {
+  color: var(--main-color);
 }
 @media (max-width: 767px) {
   header {
-    flex-direction: column;
+    height: 70px;
+  }
+  header .nav-menu,
+  header .nav-icon {
+    display: block;
   }
   header nav {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 20px;
+    display: none;
+  }
+  header .logo img {
+    width: 30px;
+    height: 30px;
+  }
+  header .logo a {
+    font-size: 1rem;
   }
   header nav a {
     font-size: 12px;
+  }
+}
+@media (max-width: 767px) {
+  header .container {
+    padding: 20px;
+  }
+}
+@media (max-width: 300px) {
+  header nav {
+    display: none;
   }
 }
 /* End header */
@@ -206,7 +311,7 @@ header nav a:hover::after {
   width: clamp(300px, 50%, 800px);
 }
 #home .container {
-  padding: 200px 0 150px;
+  padding: 250px 0 150px;
   position: relative;
   margin: 0 auto;
   height: calc(100vh - 90px);
@@ -228,7 +333,7 @@ header nav a:hover::after {
   position: absolute;
   top: 45%;
   left: 85%;
-  opacity: 0.5;
+  opacity: 0.3;
   transform: translate(-50%, -50%);
   z-index: -1;
 }
@@ -280,7 +385,7 @@ header nav a:hover::after {
   gap: 20px;
 }
 #home .links a {
-  background-color: #000;
+  background-color: var(--background-color);
   border: 1px solid var(--main-color);
   box-shadow: 0 0 10px 0 var(--main-color);
   border-radius: 20px;
@@ -296,6 +401,7 @@ header nav a:hover::after {
 @media (max-width: 577px) {
   #home .content {
     width: 100%;
+    padding: 0 20px;
   }
   #home h1 {
     font-size: 20px;
@@ -308,6 +414,9 @@ header nav a:hover::after {
   }
 }
 @media (max-width: 991px) {
+  #home {
+    margin: 150px 0 0;
+  }
   #home .container {
     flex-direction: column;
     padding: var(--setion-padding) 0;
@@ -438,7 +547,7 @@ header nav a:hover::after {
   position: absolute;
   top: 50%;
   left: 0%;
-  opacity: 0.5;
+  opacity: 0.3;
   z-index: -1;
 }
 .feature .content {
@@ -541,7 +650,7 @@ header nav a:hover::after {
   opacity: 0.7;
 }
 .cta a {
-  background-color: #000;
+  background-color: var(--background-color);
   color: white;
   padding: 10px 30px;
   font-weight: 600;
@@ -554,7 +663,7 @@ header nav a:hover::after {
 }
 .cta a:hover {
   background-color: white;
-  color: black;
+  color: var(--background-color);
 }
 @media (max-width: 767px) {
   .cta .container {
@@ -682,8 +791,6 @@ header nav a:hover::after {
 /* End Contact Section */
 /* Start footer */
 footer {
-  background-color: var(--section-title-color);
-
   padding: 20px;
   color: #ffffff;
 }
@@ -726,7 +833,7 @@ footer i:hover {
 /* End footer */
 /* Start About Section */
 #about {
-  background-color: #eee;
+  background-color: var(--section-color);
   padding: var(--setion-padding);
   margin: 150px 0 var(--setion-padding);
   border-radius: 30px;
@@ -745,7 +852,7 @@ footer i:hover {
   position: absolute;
   top: 50%;
   left: 0%;
-  opacity: 0.5;
+  opacity: 0.3;
   transform: translate(-50%, -50%);
   z-index: -1;
 }
@@ -843,7 +950,7 @@ footer i:hover {
   position: absolute;
   top: 50%;
   left: 50%;
-  opacity: 0.5;
+  opacity: 0.3;
   transform: translate(-50%, -50%);
   z-index: -1;
 }
@@ -890,7 +997,7 @@ footer i:hover {
     position: absolute;
     bottom: -10%;
     left: 50%;
-    opacity: 0.5;
+    opacity: 0.3;
     transform: translate(-50%, -50%);
     z-index: -1;
   }
@@ -931,7 +1038,7 @@ footer i:hover {
   position: absolute;
   top: 0%;
   right: 5%;
-  opacity: 0.5;
+  opacity: 0.3;
   z-index: -1;
 }
 .soon::before {
@@ -948,7 +1055,7 @@ footer i:hover {
   position: absolute;
   bottom: 0%;
   left: 5%;
-  opacity: 0.5;
+  opacity: 0.3;
   z-index: -1;
 }
 .soon .section-img {
