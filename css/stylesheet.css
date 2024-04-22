@@ -405,11 +405,7 @@ header .nav-menu a:hover {
     width: 100%;
     padding: 0 20px;
   }
-
-  #home .container::before {
-    top: 50%;
-    left: 50%;
-  }  #home h1 {
+  #home h1 {
     font-size: 20px;
   }
   #home p {
@@ -426,6 +422,10 @@ header .nav-menu a:hover {
   #home .container {
     flex-direction: column;
     padding: var(--setion-padding) 0;
+  }
+  #home .container::before {
+    top: 50%;
+    left: 50%;
   }
   #home .content {
     margin: auto;
