@@ -1,7 +1,7 @@
 // Remove Loading screen
 window.addEventListener(
   "load",
-  (document.querySelector(".loading").classList.add('loaded'))
+  document.querySelector(".loading").classList.add("loaded")
 );
 
 // Nav icon animation
@@ -52,3 +52,5 @@ window.addEventListener("scroll", function () {
   toggleFixedNavbar();
   toggleScrolledNavbar();
 });
+
+// Founders Section Scroll animation
