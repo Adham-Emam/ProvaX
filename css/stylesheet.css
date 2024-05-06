@@ -616,8 +616,9 @@ header .nav-menu a:hover {
     text-align: center;
   }
   .feature .btn {
-    margin: 20px auto;
-    display: block;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
   }
   .feature img {
     margin-top: 50px;
@@ -732,8 +733,8 @@ header .nav-menu a:hover {
     transform: translate(50%, 50%);
   }
   .founders .content .nav img {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
   }
 }
 /*  End founders section */
