@@ -53,4 +53,26 @@ window.addEventListener("scroll", function () {
   toggleScrolledNavbar();
 });
 
-// Founders Section Scroll animation
+// Founders section transition
+const authorBtns = document.querySelectorAll(".founders .content .nav li");
+const authorCards = document.querySelectorAll(
+  ".founders .content .slider .author"
+);
+
+authorBtns.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    authorBtns.forEach((el) => {
+      el.classList.remove("active");
+    });
+    
+    btn.classList.add('active')
+    
+
+    authorCards.forEach((card) => {
+      card.classList.remove("active");
+      if (card.dataset.author == btn.dataset.author) {
+        card.classList.add("active");
+      }
+    });
+  })
+);
