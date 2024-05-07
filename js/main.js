@@ -64,9 +64,8 @@ authorBtns.forEach((btn) =>
     authorBtns.forEach((el) => {
       el.classList.remove("active");
     });
-    
-    btn.classList.add('active')
-    
+
+    btn.classList.add("active");
 
     authorCards.forEach((card) => {
       card.classList.remove("active");
@@ -76,3 +75,20 @@ authorBtns.forEach((btn) =>
     });
   })
 );
+
+// Select all sections
+const animatedSections = document.querySelectorAll(".animated");
+
+// Section scroll animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    } else {
+      entry.target.classList.remove("show");
+    }
+  });
+});
+
+const hiddenElements = document.querySelectorAll(".hidden");
+hiddenElements.forEach((el) => observer.observe(el));
